@@ -2,8 +2,6 @@
  *  Signal.h
  *  A lightweight signals and slots implementation using fast delegates
  *
- *  Created by Patrick Hogan on 5/18/09.
- *
  */
 
 #ifndef _Signal_H_
