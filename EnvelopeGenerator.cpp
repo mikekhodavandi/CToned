@@ -64,9 +64,7 @@ void EnvelopeGenerator::enterStage(EnvelopeStage newStage) {
             break;
         case ENVELOPE_STAGE_RELEASE:
             
-			// We could go from ATTACK/DECAY to RELEASE,
-            
-			// so we're not changing currentLevel here.
+			
 
             calculateMultiplier(currentLevel,
                                 minimumLevel,
@@ -103,10 +101,10 @@ void EnvelopeGenerator::setStageValue(EnvelopeStage stage,
                 default:
                     break;
             }
-            // How far the generator is into the current stage:
+            
             double currentStageProcess = (currentSampleIndex + 0.0) / nextStageSampleIndex;
 
-            // How much of the current stage is left:
+            // current stage is left:
             
 			double remainingStageProcess = 1.0 - currentStageProcess;
             unsigned long long samplesUntilNextStage = remainingStageProcess * value * sampleRate;
@@ -119,7 +117,7 @@ void EnvelopeGenerator::setStageValue(EnvelopeStage stage,
     if (currentStage == ENVELOPE_STAGE_DECAY &&
         stage == ENVELOPE_STAGE_SUSTAIN) {
         
-			// We have to decay to a different sustain value than before.
+		
            // Re-calculate multiplier:
         
 			unsigned long long samplesUntilNextStage = nextStageSampleIndex - currentSampleIndex;
