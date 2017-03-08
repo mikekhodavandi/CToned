@@ -16,7 +16,7 @@ class MIDIReceiver {
 private:
     IMidiQueue mMidiQueue;
     static const int keyCount = 128;
-    int mNumKeys; // how many keys are being played at the moment (via midi)
+    int mNumKeys; // keys  being played at the moment (via midi)
     bool mKeyStatus[keyCount]; // array of on/off for each key (index is note number)
     int mLastNoteNumber;
     double mLastFrequency;
