@@ -102,7 +102,7 @@ void CToned::ProcessDoubleReplacing(
                                        double** outputs,
                                        int nFrames)
 {
-  // Mutex is already locked for us.
+  // Mutex is already locked .
   
   double *leftOutput = outputs[0];
   double *rightOutput = outputs[1];
@@ -153,7 +153,7 @@ void CToned::processVirtualKeyboard() {
   
   if(lastVirtualKeyboardNoteNumber >= virtualKeyboardMinimumNoteNumber && virtualKeyboardNoteNumber != lastVirtualKeyboardNoteNumber) {
     
-	  // The note number has changed from a valid key to something else (valid key or nothing). Release the valid key:
+	  // The note number has changed from a valid key to something else (valid key or nothing)
     
 	IMidiMsg midiMessage;
     midiMessage.MakeNoteOffMsg(lastVirtualKeyboardNoteNumber, 0);
@@ -162,7 +162,7 @@ void CToned::processVirtualKeyboard() {
   
   if (virtualKeyboardNoteNumber >= virtualKeyboardMinimumNoteNumber && virtualKeyboardNoteNumber != lastVirtualKeyboardNoteNumber) {
     
-	 // A valid key is pressed that wasn't pressed the previous call. Send a "note on" message to the MIDI receiver:
+	//Send a "note on" message to the MIDI receiver:
     
 	  IMidiMsg midiMessage;
     midiMessage.MakeNoteOnMsg(virtualKeyboardNoteNumber, virtualKeyboard->GetVelocity(), 0);
