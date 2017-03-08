@@ -15,14 +15,12 @@
 #define VIEW_CLASS CToned_View
 #define VIEW_CLASS_STR "CToned_View"
 
-// Format        0xMAJR.MN.BG - in HEX! so version 10.1.5 would be 0x000A0105
+//
 #define PLUG_VER 0x00010000
 #define VST3_VER_STR "1.0.0"
 
-// http://service.steinberg.de/databases/plugin.nsf/plugIn?openForm
-// 4 chars, single quotes. At least one capital letter
 #define PLUG_UNIQUE_ID 'Ipef'
-// make sure this is not the same as BUNDLE_MFR
+// not the same as BUNDLE_MFR
 #define PLUG_MFR_ID 'Acme'
 
 // ProTools stuff
@@ -51,13 +49,11 @@
 #define PLUG_LATENCY 0
 #define PLUG_IS_INST 1
 
-// if this is 0 RTAS can't get tempo info
-
 #define PLUG_DOES_MIDI 1
 
 #define PLUG_DOES_STATE_CHUNKS 0
 
-// Unique IDs for each image resource.
+//image resource ID .
 
 #define BG_ID         101
 #define WHITE_KEY_ID  102
