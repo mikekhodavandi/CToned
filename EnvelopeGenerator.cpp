@@ -64,15 +64,15 @@ void EnvelopeGenerator::enterStage(EnvelopeStage newStage) {
             break;
         case ENVELOPE_STAGE_RELEASE:
             
-			// We could go from ATTACK/DECAY to RELEASE,
+			// go from ATTACK/DECAY to RELEASE,
             
-			// so we're not changing currentLevel here.
+			// not changing currentLevel
 
             calculateMultiplier(currentLevel,
                                 minimumLevel,
                                 nextStageSampleIndex);
             break;
-        default:
+                  default:
             break;
     }
 }
@@ -85,7 +85,7 @@ void EnvelopeGenerator::setStageValue(EnvelopeStage stage,
                                       double value) {
     stageValue[stage] = value;
     if (stage == currentStage) {
-        // Re-calculate the multiplier and nextStageSampleIndex
+      
         if(currentStage == ENVELOPE_STAGE_ATTACK ||
            currentStage == ENVELOPE_STAGE_DECAY ||
            currentStage == ENVELOPE_STAGE_RELEASE) {
@@ -108,7 +108,7 @@ void EnvelopeGenerator::setStageValue(EnvelopeStage stage,
 
             // How much of the current stage is left:
             
-			double remainingStageProcess = 1.0 - currentStageProcess;
+	    double remainingStageProcess = 1.0 - currentStageProcess;
             unsigned long long samplesUntilNextStage = remainingStageProcess * value * sampleRate;
             nextStageSampleIndex = currentSampleIndex + samplesUntilNextStage;
             calculateMultiplier(currentLevel, nextLevelValue, samplesUntilNextStage);
@@ -119,11 +119,11 @@ void EnvelopeGenerator::setStageValue(EnvelopeStage stage,
     if (currentStage == ENVELOPE_STAGE_DECAY &&
         stage == ENVELOPE_STAGE_SUSTAIN) {
         
-			// We have to decay to a different sustain value than before.
+	   // have to decay to a different sustain value than before.
            // Re-calculate multiplier:
         
 			unsigned long long samplesUntilNextStage = nextStageSampleIndex - currentSampleIndex;
-        calculateMultiplier(currentLevel,
+        		calculateMultiplier(currentLevel,
 			std::max(stageValue[ENVELOPE_STAGE_SUSTAIN], minimumLevel),
                             samplesUntilNextStage);
     }
