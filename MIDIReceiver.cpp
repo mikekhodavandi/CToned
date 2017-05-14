@@ -17,13 +17,13 @@ void MIDIReceiver::advance() {
         IMidiMsg::EStatusMsg status = midiMessage->StatusMsg();
         int noteNumber = midiMessage->NoteNumber();
         int velocity = midiMessage->Velocity();
-        // There are only note on/off messages in the queue, see ::OnMessageReceived
+        // There are only note on/off messages in the queue
         if (status == IMidiMsg::kNoteOn && velocity) {
             if(mKeyStatus[noteNumber] == false) {
                 mKeyStatus[noteNumber] = true;
                 mNumKeys += 1;
             }
-            // A key pressed later overrides any previously pressed key:
+            // A key pressed later overrides any previously pressed key
             if (noteNumber != mLastNoteNumber) {
                 mLastNoteNumber = noteNumber;
                 mLastFrequency = noteNumberToFrequency(mLastNoteNumber);
