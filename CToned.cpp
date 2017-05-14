@@ -82,7 +82,7 @@ lastVirtualKeyboardNoteNumber(virtualKeyboardMinimumNoteNumber - 1) {
   
   AttachGraphics(pGraphics);
   
-  CreatePresets();
+  // CreatePresets();
   
   mMIDIReceiver.noteOn.Connect(this, &CToned::onNoteOn);
   mMIDIReceiver.noteOff.Connect(this, &CToned::onNoteOff);
